@@ -83,7 +83,7 @@ public class MppUtil {
             cService.setUserCredentials(userName, password);
             URL url = new URL(calendarUrl);
             List<Task> tasks = getAllTasks(mppFile);
-            updateCalenderWithEntry(tasks, cService);
+            updateCalenderWithEntry(tasks, cService, url);
         } catch (Exception e) {
             e.printStackTrace();
         }
