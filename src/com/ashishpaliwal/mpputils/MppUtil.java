@@ -53,6 +53,13 @@ public class MppUtil {
         return eventEntry;
     }
 
+    /**
+     * Add the entry to the Calendar. This method does not use batch operation
+     *
+     * @param tasks Tasks to be added
+     * @param calendarService Calendar service to use
+     * @param url   Calendar URL
+     */
     public void updateCalenderWithEntry(List<Task> tasks, CalendarService calendarService, URL url) {
         for (Task task : tasks) {
             CalendarEventEntry entry = convertTaskToCalenderEntry(task);
@@ -72,7 +79,7 @@ public class MppUtil {
      *
      * @param mppFile   The MPP file to be uploaded
      */
-    protected void  updateCalenderWithMppTask(String mppFile, String userName, String password, String calendarUrl) {
+    public void updateCalenderWithMppTask(String mppFile, String userName, String password, String calendarUrl) {
         if(mppFile == null) {
             System.err.println("mpp file is null.");
             return;
@@ -82,6 +89,7 @@ public class MppUtil {
             CalendarService cService = new CalendarService("Test Calendar");
             cService.setUserCredentials(userName, password);
             URL url = new URL(calendarUrl);
+            System.out.println("URL is : "+url);
             List<Task> tasks = getAllTasks(mppFile);
             updateCalenderWithEntry(tasks, cService, url);
         } catch (Exception e) {

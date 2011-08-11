@@ -45,6 +45,7 @@ public class CalendarUtils {
 
         // Send the request and print the response
         URL feedUrl = new URL("https://www.google.com/calendar/feeds/default/allcalendars/full");
+//        URL feedUrl = new URL("https://www.google.com/calendar/feeds/private/full");
         CalendarFeed resultFeed = myService.getFeed(feedUrl, CalendarFeed.class);
 
         return resultFeed.getEntries();

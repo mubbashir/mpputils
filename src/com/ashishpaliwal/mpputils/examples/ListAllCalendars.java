@@ -44,6 +44,7 @@ public class ListAllCalendars {
             for(CalendarEntry calendarEntry : calendars) {
                 System.out.println(calendarEntry.getTitle().getPlainText());
                 System.out.println(calendarEntry.getSelfLink().getHref());
+                System.out.println(calendarEntry.getEditLink().getHref());
                 System.out.println("-----------------------------------");
             }
         } catch (Exception e) {
